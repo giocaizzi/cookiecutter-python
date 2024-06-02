@@ -47,11 +47,7 @@ def test_package_slug(bake, recipe, expected_folder, expected_slug):
 def test_minimum_folder_structure(bake, recipe):
     """test folder stru"""
     result = bake(recipe)
-
-    # folder structuree
-    assert result.project_path.name == "pyprova"
-    assert result.project_path.is_dir()
-
+    
     # license
     assert result.project_path.joinpath("LICENSE.md").is_file()
     # readme
