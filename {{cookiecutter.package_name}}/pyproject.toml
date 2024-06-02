@@ -1,15 +1,13 @@
 [tool.poetry]
-name = "cookiecutter-python"
-version = "0.2.0"
-description = "cookiecutter python template"
+name = "{{cookiecutter.package_name}}"
+version = "{{cookiecutter.version}}"
+description = "{{cookiecutter.short_description}}"
 authors = ["giocaizzi <giocaizzi@gmail.com>"]
-license = "MIT"
+license = "{{cookiecutter.license}}"
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
-cookiecutter = "^2.6.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -21,12 +19,12 @@ flake8-rst-docstrings = "^0.3.0"
 black = {extras = ["jupyter"], version = "^24.4.2"}
 
 [tool.pytest.ini_options]
-testpaths = ["tests",]
-# addopts = "--cov --cov-report html"
+testpaths = ["tests"]
+addopts = "--cov --cov-report xml --cov-report html --cov-report lcov"
+
 
 [tool.coverage.report]
-# include = ["{{cookiecutter.package_slug}}/*"]
-
+include = ["{{cookiecutter.package_slug}}/*"]
 
 [build-system]
 requires = ["poetry-core"]

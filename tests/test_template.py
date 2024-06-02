@@ -22,7 +22,7 @@ def test_build_success(bake, recipe):
 # ------------------------------
 # NAMING
 # ------------------------------
-# test package_slug with respect 
+# test package_slug with respect
 # to naming conventions regarding "-" and "_" and " "
 # in python package names
 # controlled in cookiecutter.json
@@ -31,6 +31,7 @@ WRONG_NAMING_RECIPES = [
     ({**RECIPE, "name": "py prova"}, "py-prova", "py_prova"),
     ({**RECIPE, "name": "py_prova"}, "py-prova", "py_prova"),
 ]
+
 
 @pytest.mark.parametrize("recipe, expected_folder, expected_slug", WRONG_NAMING_RECIPES)
 def test_package_slug(bake, recipe, expected_folder, expected_slug):
@@ -47,7 +48,7 @@ def test_package_slug(bake, recipe, expected_folder, expected_slug):
 def test_minimum_folder_structure(bake, recipe):
     """test folder stru"""
     result = bake(recipe)
-    
+
     # license
     assert result.project_path.joinpath("LICENSE.md").is_file()
     # readme
@@ -63,6 +64,30 @@ def test_default_folders(bake):
     assert not result.project_path.joinpath("docsrc").is_dir()
     # workflows are a default folder
     assert result.project_path.joinpath(".github/workflows").is_dir()
+
+
+# ---- test package_specs choice ----
+SCENARIOS = [
+    {**RECIPE, "package_specs": "pyproject.toml"},
+    {**RECIPE, "package_specs": "setup.py"},
+]
+
+
+@pytest.mark.parametrize("recipe", SCENARIOS)
+def test_package_specs_choice(bake, recipe):
+    result = bake(recipe)
+    if recipe["package_specs"] == "pyproject.toml":
+        # pyproject.toml is there
+        assert result.project_path.joinpath("pyproject.toml").is_file()
+        # not required
+        assert not result.project_path.joinpath("setup.py").is_file()
+        assert not result.project_path.joinpath("pytest.ini").is_file()
+    elif recipe["package_specs"] == "setup.py":
+        # required
+        assert result.project_path.joinpath("setup.py").is_file()
+        assert result.project_path.joinpath("pytest.ini").is_file()
+        # not required
+        assert not result.project_path.joinpath("pyproject.toml").is_file()
 
 
 # ------------------------------
