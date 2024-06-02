@@ -1,6 +1,7 @@
 # cookiecutter-python
 
-[![Deploy](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml/badge.svg)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml)
+[![Deploy Ubunut](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml/badge.svg)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml)
+[![Deploy Windows](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment-win.yml/badge.svg)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment-win.yml)
 
 This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a Python packages.
 
