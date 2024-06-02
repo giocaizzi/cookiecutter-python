@@ -2,6 +2,7 @@
     "package_name":"",
     "version":"0.0.1",
     "short_description":"",
+    "setup_workflows": ["true", "false"],
     "author_name":"giocaizzi",
     "author_email":"giocaizzi@gmail.com",
     "license":"MIT",
