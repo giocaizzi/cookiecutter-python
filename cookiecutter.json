@@ -1,9 +1,9 @@
 {
     "package_name":"",
+    "version":"0.0.1",
     "short_description":"",
-    "author_name":"",
-    "author_email":"",
-    "github_username":"",
-    "year":"",
-    "url":""
+    "author_name":"giocaizzi",
+    "author_email":"giocaizzi@gmail.com",
+    "license":"MIT",
+    "github_username":"giocaizzi"
 }

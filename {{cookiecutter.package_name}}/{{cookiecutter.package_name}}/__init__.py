@@ -2,9 +2,9 @@
 
 __author__ = "{{cookiecutter.author_name}}"
 __email__ = "{{cookiecutter.author_email}}"
-__license__ = "MIT"
-__copyright__ = "Copyright (c) {{cookiecutter.year}} {{cookiecutter.author_name}}"
-__url__ = "{{cookiecutter.url}}"
+__license__ = "{{cookiecutter.license}}"
+__copyright__ = "Copyright (c) {% now 'utc', '%Y' %} {{cookiecutter.author_name}}"
+__url__ = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}"
+__version__ = "{{cookiecutter.version}}"
 
-
-__version__ = "0.0.1"
+__all__ = []

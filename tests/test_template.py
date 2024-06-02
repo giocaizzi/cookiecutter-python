@@ -17,11 +17,6 @@ def bake(cookies):
         extra_context={
             "package_name": "pyprova",
             "short_description": "This is a prova.",
-            "author_name": "Mario ML",
-            "author_email": "mario@mario.ml",
-            "github_username": "marioml",
-            "year": "2023",
-            "url": "",
         }
     )
     return result
