@@ -2,7 +2,7 @@ import pytest
 from pytest_cookies.plugin import Result
 
 RECIPE = {
-    "package_name": "pyprova",
+    "name": "pyprova",
     "short_description": "This is a prova.",
 }
 
