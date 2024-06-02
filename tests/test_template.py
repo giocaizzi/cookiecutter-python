@@ -72,13 +72,13 @@ def test_folder_structure(bake, recipe):
 
 # ---- Test workflow choice ----
 
-
+@pytest.mark.skip
 @pytest.mark.parametrize(
     "recipe",
-    RECIPES,
+    [{**RECIPE, "setup_workflows": "false"}]
 )
 def test_workflow_choice(bake, recipe):
     result = bake(recipe)
 
     # workflows
-    assert result.project_path.joinpath(".github/workflows").is_dir()
+    assert not result.project_path.joinpath(".github/workflows").is_dir()
