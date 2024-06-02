@@ -48,17 +48,18 @@ def test_package_slug(bake, recipe, expected_folder, expected_slug):
 def test_minimum_folder_structure(bake, recipe):
     """test folder stru"""
     result = bake(recipe)
-
     # license
     assert result.project_path.joinpath("LICENSE.md").is_file()
     # readme
     assert result.project_path.joinpath("README.md").is_file()
     # gitignore
     assert result.project_path.joinpath(".gitignore").is_file()
+    # flake8
+    assert result.project_path.joinpath(".flake8").is_file()
 
 
 # ---- Test default folders ----
-def test_default_folders(bake):
+def test_composition_of_default_folders(bake):
     result = bake()
     # docs is not a default folder
     assert not result.project_path.joinpath("docsrc").is_dir()
