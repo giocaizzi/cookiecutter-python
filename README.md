@@ -1,6 +1,6 @@
-# cookiecutter-python-ghpages
+# cookiecutter-python
 
-[![Tests](https://github.com/giocaizzi/cookiecutter-python-ghpages/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/giocaizzi/cookiecutter-python-ghpages/actions/workflows/tests.yml)
+[![Tests](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/tests.yml)
 
 This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a Python package with Documentation hosted on GitHub Pages.
 

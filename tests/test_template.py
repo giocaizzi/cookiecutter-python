@@ -10,19 +10,22 @@ import pytest
 # project_path: a Path object pointing to the rendered project
 # context: is the rendered context
 
+
 @pytest.fixture
 def bake(cookies):
     result = cookies.bake(
         extra_context={
-            "package_name":"pyprova",
-            "short_description":"This is a prova.",
-            "author_name":"Mario ML",
-            "author_email":"mario@mario.ml",
-            "github_username":"marioml",
-            "year":"2023",
-            "url":""
-        })
+            "package_name": "pyprova",
+            "short_description": "This is a prova.",
+            "author_name": "Mario ML",
+            "author_email": "mario@mario.ml",
+            "github_username": "marioml",
+            "year": "2023",
+            "url": "",
+        }
+    )
     return result
+
 
 def test_build_success(bake):
     result = bake
@@ -30,6 +33,7 @@ def test_build_success(bake):
     # build success
     assert result.exit_code == 0
     assert result.exception is None
+
 
 def test_folder_structure(bake):
     result = bake

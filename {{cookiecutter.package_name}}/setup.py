@@ -16,11 +16,12 @@ setup(
     author="{{cookiecutter.author_name}}",
     author_email=f"{{cookiecutter.author_email}}",
     license="MIT",
-    packages=find_packages(include=["{{cookiecutter.package_name}}", "{{cookiecutter.package_name}}/*"]),
+    packages=find_packages(
+        include=["{{cookiecutter.package_name}}", "{{cookiecutter.package_name}}/*"]
+    ),
     setup_requires=[],
     tests_require=[],
-    install_requires=[
-    ],
+    install_requires=[],
     extras_require={
         "docs": [],
         "dev": [],
