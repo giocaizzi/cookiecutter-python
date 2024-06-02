@@ -13,7 +13,8 @@ RECIPES = (
 )
 
 # Bake Result
-# cookies.bake() returns a result instance with a bunch of fields that hold useful information:
+# cookies.bake() returns a result instance with a bunch
+# of fields that hold useful information:
 
 # exit_code: is the exit code of cookiecutter, 0 means successful termination
 # exception: is the exception that happened if one did
