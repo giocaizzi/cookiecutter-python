@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "{{cookiecutter.package_name}}"
+version = "{{cookiecutter.version}}"
+description = "{{cookiecutter.short_description}}"
+authors = ["{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"]
+license = "{{cookiecutter.license}}"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.1"
+pytest-cov = "^5.0.0"
+pytest-cookies = "^0.7.0"
+flake8 = "^7.0.0"
+flake8-rst-docstrings = "^0.3.0"
+black = {extras = ["jupyter"], version = "^24.4.2"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov --cov-report xml --cov-report html --cov-report lcov"
+
+
+[tool.coverage.report]
+include = ["{{cookiecutter.package_slug}}/*"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+{% if cookiecutter.add_urls == "true" %}
+[tool.poetry.urls]
+Homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}"
+Documentation = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_name}}/"
+Repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}"
+Issues =  "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/issues"
+# Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+{% endif %}
+

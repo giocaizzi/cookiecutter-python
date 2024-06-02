@@ -8,14 +8,16 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="{{cookiecutter.package_name}}",
-    version="0.0.1",
+    version="{{cookiecutter.version}}",
     description="{{cookiecutter.short_description}}",
     long_description_content_type="text/markdown",
     long_description=long_description,
-    url="{{cookiecutter.url}}",
+    {% if cookiecutter.add_urls == "true" %}
+    url="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
+    {% endif %}
     author="{{cookiecutter.author_name}}",
     author_email=f"{{cookiecutter.author_email}}",
-    license="MIT",
+    license="{{cookiecutter.license}}",
     packages=find_packages(
         include=["{{cookiecutter.package_name}}", "{{cookiecutter.package_name}}/*"]
     ),
@@ -28,14 +30,16 @@ setup(
     },
     classifiers=[
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
+    {% if cookiecutter.add_urls == "true" %}
     project_urls={
         "Documentation": "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_name}}/",
         "Bug Reports": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/issues",
         "Source": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
     },
+    {% endif %}
 )
