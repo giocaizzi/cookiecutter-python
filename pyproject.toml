@@ -18,10 +18,10 @@ pytest-cov = "^5.0.0"
 pytest-cookies = "^0.7.0"
 flake8 = "^7.0.0"
 flake8-rst-docstrings = "^0.3.0"
-black = {extras = ["jupyter"], version = "^24.4.2"}
+black = { extras = ["jupyter"], version = "^24.4.2" }
 
 [tool.pytest.ini_options]
-testpaths = ["tests",]
+testpaths = ["tests"]
 # addopts = "--cov --cov-report html"
 
 [tool.coverage.report]
@@ -31,3 +31,9 @@ testpaths = ["tests",]
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+Homepage = "https://github.com/giocaizzi/cookiecutter-python"
+Documentation = "https://giocaizzi.github.io/cookiecutter-python/"
+Repository = "https://github.com/giocaizzi/cookiecutter-python"
+Issues = "https://github.com/giocaizzi/cookiecutter-python/issues"

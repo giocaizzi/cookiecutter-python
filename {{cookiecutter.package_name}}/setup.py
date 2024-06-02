@@ -12,7 +12,9 @@ setup(
     description="{{cookiecutter.short_description}}",
     long_description_content_type="text/markdown",
     long_description=long_description,
+    {% if cookiecutter.add_urls == "true" %}
     url="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
+    {% endif %}
     author="{{cookiecutter.author_name}}",
     author_email=f"{{cookiecutter.author_email}}",
     license="{{cookiecutter.license}}",
@@ -33,9 +35,11 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
+    {% if cookiecutter.add_urls == "true" %}
     project_urls={
         "Documentation": "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_name}}/",
         "Bug Reports": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/issues",
         "Source": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
     },
+    {% endif %}
 )

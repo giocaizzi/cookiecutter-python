@@ -10,5 +10,6 @@
   "author_name": "giocaizzi",
   "author_email": "giocaizzi@gmail.com",
   "license": "MIT",
+  "add_urls": ["true", "false"],
   "github_username": "giocaizzi"
 }
