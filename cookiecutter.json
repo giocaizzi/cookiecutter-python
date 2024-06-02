@@ -3,6 +3,7 @@
     "version":"0.0.1",
     "short_description":"",
     "setup_workflows": ["true", "false"],
+    "setup_docs": ["false", "true"],
     "author_name":"giocaizzi",
     "author_email":"giocaizzi@gmail.com",
     "license":"MIT",

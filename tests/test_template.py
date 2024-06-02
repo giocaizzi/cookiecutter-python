@@ -1,7 +1,8 @@
 """test template"""
 
 import pytest
-from pytest_cookies.plugin import Result
+
+from tests.conftest import RECIPE, RECIPES
 
 # Bake Result
 # cookies.bake() returns a result instance with a bunch of fields that hold useful information:
@@ -10,29 +11,6 @@ from pytest_cookies.plugin import Result
 # exception: is the exception that happened if one did
 # project_path: a Path object pointing to the rendered project
 # context: is the rendered context
-
-RECIPE = {
-    "package_name": "pyprova",
-    "short_description": "This is a prova.",
-}
-
-RECIPES = (
-    None,
-    RECIPE,
-    {**RECIPE, "setup_workflows": "false"},
-)
-
-
-@pytest.fixture
-def bake(cookies):
-    def _bake(extra_context=None):
-        if extra_context is None:
-            # Use default parameters
-            extra_context = RECIPE
-        cookie = cookies.bake(extra_context=extra_context)
-        return cookie
-
-    return _bake
 
 
 # ---- Test success of recepies ----
@@ -48,10 +26,12 @@ def test_build_success(bake, recipe):
     assert result.exit_code == 0
     assert result.exception is None
 
-
-# ---- Test project structure ----
+# ------------------------------
+# FOLDER STRUCTURE
+# ------------------------------
+# ---- Test minimum project structure ----
 @pytest.mark.parametrize("recipe", RECIPES)
-def test_folder_structure(bake, recipe):
+def test_minimum_folder_structure(bake, recipe):
     """test folder stru"""
     result = bake(recipe)
 
@@ -65,20 +45,26 @@ def test_folder_structure(bake, recipe):
     assert result.project_path.joinpath("README.md").is_file()
     # gitignore
     assert result.project_path.joinpath(".gitignore").is_file()
-    # # workflows
-    # assert result.project_path.joinpath(".github.is_dir()")
-    # assert result.project_path.joinpath(".github/workflows").is_dir()
 
 
+def test_default_folders(bake):
+    result = bake()
+    # docs is not a default folder
+    assert not result.project_path.joinpath("docsrc").is_dir()
+    # workflows are a default folder
+    assert result.project_path.joinpath(".github/workflows").is_dir()
+
+
+# ------------------------------
+# CHOICESS
+# ------------------------------
 # ---- Test workflow choice ----
-
-@pytest.mark.skip
-@pytest.mark.parametrize(
-    "recipe",
-    [{**RECIPE, "setup_workflows": "false"}]
-)
-def test_workflow_choice(bake, recipe):
-    result = bake(recipe)
-
-    # workflows
+def test_workflow_choice(bake):
+    result = bake({**RECIPE, "setup_workflows": "false"})
     assert not result.project_path.joinpath(".github/workflows").is_dir()
+
+
+# ---- Test docs choice ----
+def test_docs_choice(bake):
+    result = bake({**RECIPE, "setup_docs": "false"})
+    assert not result.project_path.joinpath("docsrc").is_dir()
