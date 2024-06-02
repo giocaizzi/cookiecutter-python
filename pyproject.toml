@@ -5,7 +5,7 @@ description = "cookiecutter python template"
 authors = ["giocaizzi <giocaizzi@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-package-mode = false 
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
