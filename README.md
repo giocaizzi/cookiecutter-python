@@ -16,7 +16,7 @@ pipx run cookiecutter gh:giocaizzi/cookiecutter-python
 From *local* template:
 
 ```bash
-pipx run cookiecutter cookiecutter-python-ghpages/
+pipx run cookiecutter ./cookiecutter-python
 ```      
 
 ## 🍬 Features:
