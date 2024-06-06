@@ -2,22 +2,17 @@
 
 import pytest
 
-from .conftest import RECIPE, RECIPES
+from tests.conftest import RECIPES, RECIPE
 
-
-# ---- Test success of recepies ----
-@pytest.mark.parametrize(
-    "recipe",
-    RECIPES,
-)
-def test_build_success(bake, recipe):
-    """test that the recipes build successfully"""
-    result = bake(recipe)
-
-    # build success
-    assert result.exit_code == 0
-    assert result.exception is None
-
+# ------------------------------
+# README
+# ------------------------------
+# All these tests are parametrized with RECIPES
+# which is a list of dictionaries that represent
+# different combinations of choices that can be made
+# when baking the template.
+# If the key is not present in the dictionary
+# the default value is used.
 
 # ------------------------------
 # NAMING
@@ -58,49 +53,73 @@ def test_minimum_folder_structure(bake, recipe):
     assert result.project_path.joinpath(".flake8").is_file()
 
 
-# ---- Test default folders ----
+# ---- Test default folders----
 def test_composition_of_default_folders(bake):
+    """test default composition of folders
+
+    All features are enabled by default
+    """
     result = bake()
+    # pyproject.toml is a default file
+    assert result.project_path.joinpath("pyproject.toml").is_file()
     # docs is not a default folder
-    assert not result.project_path.joinpath("docsrc").is_dir()
+    assert result.project_path.joinpath("docsrc").is_dir()
     # workflows are a default folder
     assert result.project_path.joinpath(".github/workflows").is_dir()
 
 
 # ---- test package_specs choice ----
-SCENARIOS = [
-    {**RECIPE, "package_specs": "pyproject.toml"},
-    {**RECIPE, "package_specs": "setup.py"},
-]
-
-
-@pytest.mark.parametrize("recipe", SCENARIOS)
+@pytest.mark.parametrize("recipe", RECIPES)
 def test_package_specs_choice(bake, recipe):
     result = bake(recipe)
-    if recipe["package_specs"] == "pyproject.toml":
-        # pyproject.toml is there
+    print(recipe)
+    # if default (not specified)
+    if "package_specs" not in recipe:
+        # default is pyproject.toml
         assert result.project_path.joinpath("pyproject.toml").is_file()
-        # not required
-        assert not result.project_path.joinpath("setup.py").is_file()
-        assert not result.project_path.joinpath("pytest.ini").is_file()
-    elif recipe["package_specs"] == "setup.py":
-        # required
-        assert result.project_path.joinpath("setup.py").is_file()
-        assert result.project_path.joinpath("pytest.ini").is_file()
-        # not required
-        assert not result.project_path.joinpath("pyproject.toml").is_file()
+    # else if specified
+    else:
+        if recipe["package_specs"] == "pyproject.toml":
+            # pyproject.toml is there
+            assert result.project_path.joinpath("pyproject.toml").is_file()
+            # not required
+            assert not result.project_path.joinpath("setup.py").is_file()
+            assert not result.project_path.joinpath("pytest.ini").is_file()
+        elif recipe["package_specs"] == "setup.py":
+            # required
+            assert result.project_path.joinpath("setup.py").is_file()
+            assert result.project_path.joinpath("pytest.ini").is_file()
+            # not required
+            assert not result.project_path.joinpath("pyproject.toml").is_file()
 
 
-# ------------------------------
-# CHOICESS
-# ------------------------------
-# ---- Test workflow choice ----
-def test_workflow_choice(bake):
-    result = bake({**RECIPE, "setup_workflows": "false"})
-    assert not result.project_path.joinpath(".github/workflows").is_dir()
+@pytest.mark.parametrize("recipe", RECIPES)
+def test_setup_docs_choice(bake, recipe):
+    result = bake(recipe)
+    # if default (not specified)
+    if "setup_docs" not in recipe:
+        # docs is a default folder
+        assert result.project_path.joinpath("docsrc").is_dir()
+    # else if specified
+    else:
+        if recipe["setup_docs"] == "true":
+            assert result.project_path.joinpath("docsrc").is_dir()
+        elif recipe["setup_docs"] == "false":
+            assert not result.project_path.joinpath("docsrc").is_dir()
 
 
-# ---- Test docs choice ----
-def test_docs_choice(bake):
-    result = bake({**RECIPE, "setup_docs": "false"})
-    assert not result.project_path.joinpath("docsrc").is_dir()
+@pytest.mark.parametrize("recipe", RECIPES)
+def test_setup_workflows_choice(bake, recipe):
+    result = bake(recipe)
+    # if default (not specified)
+    if "setup_workflows" not in recipe:
+        # workflows are a default folder
+        assert result.project_path.joinpath(".github/workflows").is_dir()
+    # else if specified
+    else:
+        if recipe["setup_workflows"] == "true":
+            # workflows are a default folder
+            assert result.project_path.joinpath(".github/workflows").is_dir()
+        elif recipe["setup_workflows"] == "false":
+            # workflows are not a default folder
+            assert not result.project_path.joinpath(".github/workflows").is_dir()

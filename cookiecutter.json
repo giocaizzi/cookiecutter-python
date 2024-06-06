@@ -6,10 +6,41 @@
   "version": "0.0.1",
   "short_description": "",
   "setup_workflows": ["true", "false"],
-  "setup_docs": ["false", "true"],
+  "setup_docs": ["true", "false"],
   "author_name": "giocaizzi",
   "author_email": "giocaizzi@gmail.com",
   "license": "MIT",
   "add_urls": ["true", "false"],
-  "github_username": "giocaizzi"
+  "github_username": "giocaizzi",
+  "__prompts__": {
+    "name": "Project Name",
+    "package_name": "Package Name",
+    "package_slug": "Package Slug (python-friendly name)",
+    "package_specs": {
+      "__prompt__": "Packaging specs ",
+      "pyproject.toml": "pyproject.toml (Recommended)",
+      "setup.py": "setup.py (Legacy)"
+    },
+    "version": "Version (format: x.x.x)",
+    "short_description": "Short Description",
+    "setup_workflows": {
+      "__prompt__": "Setup GitHub Workflows",
+      "true": "Yes",
+      "false": "No"
+    },
+    "setup_docs": {
+      "__prompt__": "Setup Documentation",
+      "true": "Yes",
+      "false": "No"
+    },
+    "author_name": "Author Name",
+    "author_email": "Author Email",
+    "license": "License",
+    "add_urls": {
+      "__prompt__": "Add URLs in package metadata (e.g. project URL, documentation URL, etc.)",
+      "true": "Yes",
+      "false": "No"
+    },
+    "github_username": "GitHub Username"
+  }
 }
