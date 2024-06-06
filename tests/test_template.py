@@ -56,7 +56,7 @@ def test_minimum_folder_structure(bake, recipe):
 # ---- Test default folders----
 def test_composition_of_default_folders(bake):
     """test default composition of folders
-    
+
     All features are enabled by default
     """
     result = bake()
@@ -106,6 +106,7 @@ def test_setup_docs_choice(bake, recipe):
             assert result.project_path.joinpath("docsrc").is_dir()
         elif recipe["setup_docs"] == "false":
             assert not result.project_path.joinpath("docsrc").is_dir()
+
 
 @pytest.mark.parametrize("recipe", RECIPES)
 def test_setup_workflows_choice(bake, recipe):
