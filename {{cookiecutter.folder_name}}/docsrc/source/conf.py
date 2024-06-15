@@ -17,14 +17,14 @@ sys.path.insert(0, os.path.abspath("../.."))
 
 
 # -- Project information -----------------------------------------------------
-import {{cookiecutter.package_name}}
-project = "{{cookiecutter.package_name}}"
+import {{cookiecutter.package_slug}}
+project = "{{cookiecutter.package_slug}}"
 
-copyright = {{cookiecutter.package_name}}.__copyright__
-author = {{cookiecutter.package_name}}.__author__
+copyright = {{cookiecutter.package_slug}}.__copyright__
+author = {{cookiecutter.package_slug}}.__author__
 
-release = {{cookiecutter.package_name}}.__version__
-version = {{cookiecutter.package_name}}.__version__
+release = {{cookiecutter.package_slug}}.__version__
+version = {{cookiecutter.package_slug}}.__version__
 
 # -- General configuration ---------------------------------------------------
 

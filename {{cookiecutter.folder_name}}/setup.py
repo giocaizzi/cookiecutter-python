@@ -7,19 +7,19 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name="{{cookiecutter.package_name}}",
+    name="{{cookiecutter.package_slug}}",
     version="{{cookiecutter.version}}",
     description="{{cookiecutter.short_description}}",
     long_description_content_type="text/markdown",
     long_description=long_description,
     {% if cookiecutter.add_urls == "true" %}
-    url="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
+    url="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}",
     {% endif %}
     author="{{cookiecutter.author_name}}",
     author_email=f"{{cookiecutter.author_email}}",
     license="{{cookiecutter.license}}",
     packages=find_packages(
-        include=["{{cookiecutter.package_name}}", "{{cookiecutter.package_name}}/*"]
+        include=["{{cookiecutter.package_slug}}", "{{cookiecutter.package_slug}}/*"]
     ),
     setup_requires=[],
     tests_require=[],
@@ -37,9 +37,9 @@ setup(
     ],
     {% if cookiecutter.add_urls == "true" %}
     project_urls={
-        "Documentation": "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_name}}/",
-        "Bug Reports": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/issues",
-        "Source": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
+        "Documentation": "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_slug}}/",
+        "Bug Reports": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}/issues",
+        "Source": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}",
     },
     {% endif %}
 )

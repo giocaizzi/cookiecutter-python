@@ -1,5 +1,5 @@
 ===============================================
-Welcome to {{cookiecutter.package_name}}'s documentation!
+Welcome to {{cookiecutter.package_slug}}'s documentation!
 ===============================================
 
 {{cookiecutter.short_description}}
@@ -21,7 +21,7 @@ Code reference
    :caption: Code reference
    :recursive:
 
-   {{cookiecutter.package_name}}
+   {{cookiecutter.package_slug}}
 
 
 
