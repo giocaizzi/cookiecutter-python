@@ -1,3 +1,3 @@
-# {{cookiecutter.package_name}}
+# {{cookiecutter.folder_name}}
 
 {{cookiecutter.short_description}}

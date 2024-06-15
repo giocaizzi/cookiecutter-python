@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{cookiecutter.package_name}}"
+name = "{{cookiecutter.package_slug}}"
 version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.short_description}}"
 authors = ["{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"]
@@ -31,10 +31,10 @@ build-backend = "poetry.core.masonry.api"
 
 {% if cookiecutter.add_urls == "true" %}
 [tool.poetry.urls]
-Homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}"
-Documentation = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_name}}/"
-Repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}"
-Issues =  "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/issues"
+Homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}"
+Documentation = "https://{{cookiecutter.github_username}}.github.io/{{cookiecutter.package_slug}}/"
+Repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}"
+Issues =  "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}/issues"
 # Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 {% endif %}
 

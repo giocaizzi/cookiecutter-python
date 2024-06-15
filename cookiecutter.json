@@ -1,7 +1,7 @@
 {
   "name": "",
-  "package_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}",
-  "package_slug": "{{ cookiecutter.package_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "folder_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}",
+  "package_slug": "{{ cookiecutter.folder_name.lower().replace(' ', '_').replace('-', '_') }}",
   "package_specs": ["pyproject.toml", "setup.py"],
   "version": "0.0.1",
   "short_description": "",
@@ -13,34 +13,34 @@
   "add_urls": ["true", "false"],
   "github_username": "giocaizzi",
   "__prompts__": {
-    "name": "Project Name",
-    "package_name": "Package Name",
-    "package_slug": "Package Slug (python-friendly name)",
+    "name": "[bold cyan]Project Name:[/]\n[magenta]\tProject 'pretty' name, not necessarily compliant with Python package specifications. Used for automatically creating python-friendly names.\n\t(e.g. 'My Awesome Project').[/]\n  ",
+    "folder_name": "[bold cyan]Folder Name[/]\n[magenta]\tThis name is used for the root folder name.[/]\n  ",
+    "package_slug": "[bold cyan]Package Slug[/]\n[magenta]\tPython-friendly name.[/]\n  ",
     "package_specs": {
-      "__prompt__": "Packaging specs ",
+      "__prompt__": "[bold cyan]Packaging specs[/]\n[magenta]\tDefine package spec following modern PEPs or legacy setup.[/]",
       "pyproject.toml": "pyproject.toml (Recommended)",
       "setup.py": "setup.py (Legacy)"
     },
-    "version": "Version (format: x.x.x)",
-    "short_description": "Short Description",
+    "version": "[bold cyan]Version[/]\n[magenta]\tSpecify version (format: x.x.x)[/]\n  ",
+    "short_description": "[bold cyan]Short Description[/]\n[magenta]\tShort description of the project.[/]\n  ",
     "setup_workflows": {
-      "__prompt__": "Setup GitHub Workflows",
+      "__prompt__": "[bold cyan]GitHub Workflows[/]\n[magenta]\tAdd GitHub workflows for CICD[/]",
       "true": "Yes",
       "false": "No"
     },
     "setup_docs": {
-      "__prompt__": "Setup Documentation",
+      "__prompt__": "[bold cyan]Documentation[/]\n[magenta]\tAdd Sphinx documentation source code.[/]\n  ",
       "true": "Yes",
       "false": "No"
     },
-    "author_name": "Author Name",
-    "author_email": "Author Email",
-    "license": "License",
+    "author_name": "[bold cyan]Author Name[/]\n[magenta]\tAuthor's name.[/]\n  ",
+    "author_email": "[bold cyan]Author Email[/]\n[magenta]\tAuthor's email.[/]\n  ",
+    "license": "[bold cyan]License[/]\n[magenta]\tLicense type (e.g. MIT).[/]\n  ",
     "add_urls": {
-      "__prompt__": "Add URLs in package metadata (e.g. project URL, documentation URL, etc.)",
+      "__prompt__": "[bold cyan]Add URLs[/]\n[magenta]\tAdd URLs to the project metadata, using the following github username.[/]\n  ",
       "true": "Yes",
       "false": "No"
     },
-    "github_username": "GitHub Username"
+    "github_username": "[bold cyan]GitHub Username[/]\n  "
   }
 }
