@@ -19,6 +19,22 @@ From *local* template:
 pipx run cookiecutter ./cookiecutter-python
 ```      
 
+### User configuration
+
+Specify user configuration in YAML file.
+
+```yaml
+default_context:
+  author_name: "Mario Rossi"
+  author_email: "mario@rossi.com"
+  github_username: "mariorrossi"
+```
+
+Set default configuration, adding the `COOKIECUTTER_CONFIG` environment variable.
+```bash
+export COOKIECUTTER_CONFIG=/home/mariorossi/my-custom-config.yaml
+```
+
 ## 🍬 Features:
 
 - 🛠 **Set up Python 3.x package** with [poetry]() or [setuptools](https://setuptools.readthedocs.io/en/latest/)

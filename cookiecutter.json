@@ -1,19 +1,19 @@
 {
-  "name": "",
+  "name": "My Awesome Python Project",
   "folder_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}",
   "package_slug": "{{ cookiecutter.folder_name.lower().replace(' ', '_').replace('-', '_') }}",
   "package_specs": ["pyproject.toml", "setup.py"],
   "version": "0.0.1",
   "short_description": "",
+  "license": "MIT",
   "setup_workflows": ["true", "false"],
   "setup_docs": ["true", "false"],
-  "author_name": "giocaizzi",
-  "author_email": "giocaizzi@gmail.com",
-  "license": "MIT",
+  "author_name": "",
+  "author_email": "",
+  "github_username": "",
   "add_urls": ["true", "false"],
-  "github_username": "giocaizzi",
   "__prompts__": {
-    "name": "[bold cyan]Project Name:[/]\n[magenta]\tProject 'pretty' name, not necessarily compliant with Python package specifications. Used for automatically creating python-friendly names.\n\t(e.g. 'My Awesome Project').[/]\n  ",
+    "name": "[bold cyan]Project Name:[/]\n[magenta]\tProject 'pretty' name, not necessarily compliant with Python package specifications.\n\tUsed for automatically creating python-friendly names.[/]\n  ",
     "folder_name": "[bold cyan]Folder Name[/]\n[magenta]\tThis name is used for the root folder name.[/]\n  ",
     "package_slug": "[bold cyan]Package Slug[/]\n[magenta]\tPython-friendly name.[/]\n  ",
     "package_specs": {
@@ -29,7 +29,7 @@
       "false": "No"
     },
     "setup_docs": {
-      "__prompt__": "[bold cyan]Documentation[/]\n[magenta]\tAdd Sphinx documentation source code.[/]\n  ",
+      "__prompt__": "[bold cyan]Documentation[/]\n[magenta]\tAdd Sphinx documentation source code.[/]",
       "true": "Yes",
       "false": "No"
     },
@@ -37,7 +37,7 @@
     "author_email": "[bold cyan]Author Email[/]\n[magenta]\tAuthor's email.[/]\n  ",
     "license": "[bold cyan]License[/]\n[magenta]\tLicense type (e.g. MIT).[/]\n  ",
     "add_urls": {
-      "__prompt__": "[bold cyan]Add URLs[/]\n[magenta]\tAdd URLs to the project metadata, using the following github username.[/]\n  ",
+      "__prompt__": "[bold cyan]Add URLs[/]\n[magenta]\tAdd URLs to the project metadata, using the following github username.[/] ",
       "true": "Yes",
       "false": "No"
     },
