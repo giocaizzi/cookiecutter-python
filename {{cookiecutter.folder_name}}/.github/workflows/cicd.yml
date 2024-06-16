@@ -1,0 +1,12 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    uses: giocaizzi/python-dev-actions/.github/workflows/deployment.yml@main
+    secrets: inherit
