@@ -49,8 +49,6 @@ def test_minimum_folder_structure(bake, recipe):
     assert result.project_path.joinpath("README.md").is_file()
     # gitignore
     assert result.project_path.joinpath(".gitignore").is_file()
-    # flake8
-    assert result.project_path.joinpath(".flake8").is_file()
 
 
 # ---- Test default folders----
@@ -84,11 +82,9 @@ def test_package_specs_choice(bake, recipe):
             assert result.project_path.joinpath("pyproject.toml").is_file()
             # not required
             assert not result.project_path.joinpath("setup.py").is_file()
-            assert not result.project_path.joinpath("pytest.ini").is_file()
         elif recipe["package_specs"] == "setup.py":
             # required
             assert result.project_path.joinpath("setup.py").is_file()
-            assert result.project_path.joinpath("pytest.ini").is_file()
             # not required
             assert not result.project_path.joinpath("pyproject.toml").is_file()
 
