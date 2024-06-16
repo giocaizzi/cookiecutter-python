@@ -1,7 +1,6 @@
 import os
 import shutil
 
-
 # https://cookiecutter.readthedocs.io/en/latest/advanced/hooks.html#example-conditional-files-directories#conditional-file/directory-removal
 REMOVE_PATHS = [
     # ---- FEATURES ----
