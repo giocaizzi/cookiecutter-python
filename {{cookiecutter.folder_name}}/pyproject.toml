@@ -62,4 +62,3 @@ Repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter
 Issues =  "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_slug}}/issues"
 # Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 {% endif %}
-

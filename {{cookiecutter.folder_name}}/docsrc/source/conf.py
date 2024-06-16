@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.abspath("../.."))
 
 # -- Project information -----------------------------------------------------
 import {{cookiecutter.package_slug}}
+
 project = "{{cookiecutter.package_slug}}"
 
 copyright = {{cookiecutter.package_slug}}.__copyright__

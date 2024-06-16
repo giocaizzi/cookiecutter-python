@@ -2,7 +2,7 @@
 
 import pytest
 
-from tests.conftest import RECIPES, RECIPE
+from tests.conftest import RECIPE, RECIPES
 
 # ------------------------------
 # README
