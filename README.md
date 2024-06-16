@@ -3,21 +3,13 @@
 [![Deploy Ubunut](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml/badge.svg)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment.yml)
 [![Deploy Windows](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment-win.yml/badge.svg)](https://github.com/giocaizzi/cookiecutter-python/actions/workflows/deployment-win.yml)
 
-This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a Python packages.
+This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Python packages.
 
 ## Usage
 
-From *remote* template:
-
 ```bash
-pipx run cookiecutter gh:giocaizzi/cookiecutter-python
+pipx run cookiecutter gh:giocaizzi/cookiecutter-python [--config-file <path_to_config>]
 ```
-
-From *local* template:
-
-```bash
-pipx run cookiecutter ./cookiecutter-python
-```      
 
 ### User configuration
 
